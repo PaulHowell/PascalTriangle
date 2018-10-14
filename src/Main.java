@@ -4,16 +4,16 @@ import java.text.NumberFormat;
 
 public class Main extends JFrame {
 
-	final int MAX_MOD = 50;
-	int mod = 2;
 	final int TOP_MARGIN = 30;
 	final int BOTTOM_MARGIN = 5;
 	final int SIDE_MARGIN = 5;
 
-	Color[] colors = new Color[mod];
+	final int MAX_MOD = 50;
+	private int mod = 2;
+	private Color[] colors = new Color[mod];
 
-	JPanel p = new JPanel(new BorderLayout());
-	JPanel colorPanel = null;
+	private JPanel p = new JPanel(new BorderLayout());
+	private JPanel colorPanel = null;
 
 	public Main() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,14 +74,9 @@ public class Main extends JFrame {
 
 		//色の配列
 		colors = new Color[mod];
-		if (mod==2){
-			colors[0] = Color.WHITE;
-			colors[1] = Color.RED;
-		}else {
-			for (int i=0; i<mod; i++) {
-				if (i==0) colors[i] = Color.WHITE;
-				else colors[i] = Color.getHSBColor((float)(i-1)/(mod-1), 1, 1);
-			}
+		for (int i=0; i<mod; i++) {
+			if (i==0) colors[i] = Color.WHITE;
+			else colors[i] = Color.getHSBColor((float)(i-1)/(mod-1), 1, 1);
 		}
 
 		//凡例表示
